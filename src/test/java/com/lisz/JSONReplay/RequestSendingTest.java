@@ -1,7 +1,5 @@
 package com.lisz.JSONReplay;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 import com.lisz.demo.StripeAPIClient;
