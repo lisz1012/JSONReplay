@@ -2,11 +2,15 @@ package com.lisz.JSONReplay;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.File;
+import java.util.Arrays;
+
 import org.junit.Test;
 
 import com.lisz.demo.JSONConverter;
 import com.lisz.demo.Source;
 import com.lisz.demo.Transaction;
+import com.lisz.model.Person;
 
 public class JSONConverterTest {
 	@Test
@@ -41,5 +45,11 @@ public class JSONConverterTest {
 		
 		Transaction convertedTransaction = JSONConverter.toObject(JSONConverter.toJsonString(transaction), Transaction.class);
 		assertEquals(transaction, convertedTransaction);
+	}
+	
+	@Test
+	public void testToPersonArray() {
+		Person persons[] = JSONConverter.toPersonArray(new File("request-1.json"));
+		Arrays.asList(persons).stream().forEach(System.out::println);
 	}
 }
